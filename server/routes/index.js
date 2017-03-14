@@ -2,13 +2,23 @@ var express = require('express')
 var router = express.Router()
 const quoteController = require('../controllers/quotes')
 
-/* GET home page. */
-router.get('/', quoteController.getQuotes)
+// API
 
-router.post('/create', quoteController.createQuote)
+router.get('/api', function (req, res, next) {
+  res.send({
+    endpoints: [
+      '/api/quote',
+      '/api/quote/:id'
+    ]
+  })
+})
 
-router.put('/update/:id', quoteController.updateQuote)
+router.get('/api/quote', quoteController.getQuotes)
 
-router.delete('/delete/:id', QuoteCquoteControllerontroller.deleteQuote)
+router.post('/api/quote', quoteController.createQuote)
+
+router.put('/api/quote/:id', quoteController.updateQuote)
+
+router.delete('/api/quote/:id', quoteController.deleteQuote)
 
 module.exports = router

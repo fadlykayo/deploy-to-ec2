@@ -1,4 +1,4 @@
-const Quotes = require('..models/Quotes')
+const Quotes = require('../models/Quotes')
 
 module.exports = {
   getQuotes: (req, res) => {
