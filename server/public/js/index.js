@@ -5,7 +5,7 @@ $(document).ready(function () {
 function getQuotes () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/api/quote',
+    url: '/api/quote',
     success: function (resp) {
       for (var i = 0; i < resp.length; i++) {
         let quotes = resp[i]
