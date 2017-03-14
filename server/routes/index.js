@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
+const quoteController = require('../controllers/quotes')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', quoteController.getQuotes)
 
-module.exports = router;
+router.post('/create', quoteController.createQuote)
+
+router.put('/update/:id', quoteController.updateQuote)
+
+router.delete('/delete/:id', QuoteCquoteControllerontroller.deleteQuote)
+
+module.exports = router
