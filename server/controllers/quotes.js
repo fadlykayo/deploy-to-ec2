@@ -29,15 +29,13 @@ module.exports = {
     })
   },
   createBulkQuotes: (req, res) => {
-    // remove pake middleware bagusnya
+    // remove pake middleware bagusnya (?)
     Quotes.remove().then(function () {
-      res.send('Database data removed')
-    }).catch(function (err) {
-      res.send(err)
-    })
-
-    Quotes.create(seedQuotes).then(function (data) {
-      res.send(data)
+      Quotes.create(seedQuotes).then(function (data) {
+        res.send(data)
+      }).catch(function (err) {
+        res.send(err)
+      })
     }).catch(function (err) {
       res.send(err)
     })
