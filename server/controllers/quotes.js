@@ -1,4 +1,5 @@
-const Quotes = require('../models/Quotes')
+const Quotes = require('../models/quotes')
+const seedQuotes = require('../seeders/quotes')
 
 module.exports = {
   getQuotes: (req, res) => {
@@ -22,6 +23,13 @@ module.exports = {
       content: req.body.content,
       creator: req.body.creator
     }).then(function (data) {
+      res.send(data)
+    }).catch(function (err) {
+      res.send(err)
+    })
+  },
+  createBulkQuotes: (req, res) => {
+    Quotes.create(seedQuotes).then(function (data) {
       res.send(data)
     }).catch(function (err) {
       res.send(err)
