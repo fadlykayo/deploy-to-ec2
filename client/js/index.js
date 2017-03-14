@@ -5,7 +5,7 @@ $(document).ready(function () {
 function getQuotes () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/api/quote',
+    url: 'http://ec2-52-88-210-96.us-west-2.compute.amazonaws.com:3000/api/quote',
     success: function (resp) {
       for (var i = 0; i < resp.length; i++) {
         let quotes = resp[i]
