@@ -8,7 +8,7 @@ router.get('/api', function (req, res, next) {
   res.send({
     endpoints: [
       '/api/quote',
-      '/api/quote/:id'
+      '/api/quote/:id',
       '/api/quote/seed'
     ]
   })
